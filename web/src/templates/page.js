@@ -102,8 +102,8 @@ const Page = props => {
     });
 
   const gradient = {
-    from: (site.primaryColor && site.primaryColor.hex) || "#d53369",
-    to: (site.secondaryColor && site.secondaryColor.hex) || "#daae51"
+    from: (site.primaryColor && site.primaryColor.hex) || "#facf00",
+    to: (site.secondaryColor && site.secondaryColor.hex) || "#0071BA"
   };
 
   const menuItems = page.navMenu && (page.navMenu.items || []);
@@ -118,9 +118,8 @@ const Page = props => {
         bodyAttr={{
           class: "leading-normal tracking-normal text-white gradient"
         }}
-        gradient={gradient}
       />
-      <div className="pt-24">{content}</div>
+      <div className="pt-24 text-gray-800">{content}</div>
     </Layout>
   );
 };

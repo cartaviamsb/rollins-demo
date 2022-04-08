@@ -16,7 +16,7 @@ const maybeImage = illustration => {
 
     img = (
       <GatsbyImage
-        className="w-full md:w-4/5 z-50"
+        className="w-full md:w-4/5"
         image={imageData}
         alt={illustration.image.alt}
       />
@@ -28,7 +28,7 @@ const maybeImage = illustration => {
 function Hero(props) {
   const img = maybeImage(props.illustration);
   return (
-    <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+    <div className="max-w-6xl container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
       {/* Left col */}
       <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
         <p className="uppercase tracking-loose w-full">{props.label}</p>

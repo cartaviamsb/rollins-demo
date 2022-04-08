@@ -47,7 +47,6 @@ class Layout extends React.Component {
           onHideNav={onHideNav}
           onShowNav={onShowNav}
           showNav={showNav}
-          scrolled={scrolled}
           textWhite={textWhite}
         />
         <>{children}</>

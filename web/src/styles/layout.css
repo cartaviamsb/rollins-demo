@@ -43,3 +43,9 @@ h1 {
 }
 
 */
+
+@media (min-width: 768px) {
+  .dropdown-menu {
+    max-height: 350px;
+  }
+}

@@ -45,7 +45,7 @@ h1 {
 */
 
 @media (min-width: 768px) {
-  .dropdown-menu {
+  .secondary-menu .dropdown-menu {
     max-height: 320px;
   }
 }

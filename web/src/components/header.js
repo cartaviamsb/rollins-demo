@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import CTALink from "./CTALink";
-import SecondaryMenu from "./SecondaryMenu";
+import SecondaryMenu from "./secondary-menu";
 
 const Header = ({ showNav, siteTitle, navMenuItems = [], textWhite = true }) => {
   let headerClass = "w-full z-30 top-0";;

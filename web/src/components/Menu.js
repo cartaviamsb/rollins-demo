@@ -1,4 +1,4 @@
-import React, {useState} from"react";
+import React, {useState, useEffect} from"react";
 
 const MenuGroup = (props) => {
   return (
@@ -167,11 +167,23 @@ const Menu = (props) => {
   };
 
   const [scrolled, setScrolled] = useState(false);
-  if (scrolled && window.scrollY <= 0) {
-    setScrolled(false);
-  } else if (!scrolled && window.scrollY > 0) {
-    setScrolled(true);
-  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleBodyClass);
+    toggleBodyClass();
+  });
+
+  useEffect(() => {
+    window.removeEventListener("scroll", toggleBodyClass);
+  }, []);
+
+  const toggleBodyClass = () => {
+    if (scrolled && window.scrollY <= 0) {
+      setScrolled(false);
+    } else if (!scrolled && window.scrollY > 0) {
+      setScrolled(true);
+    };
+  }
   
   let headerClass = "secondary-menu w-full z-30";
   headerClass += scrolled ? " fixed top-0 bg-rollins-blue text-white border-b-4 border-rollins-yellow" : " absolute bg-rollins-gray text-rollins-blue shadow";

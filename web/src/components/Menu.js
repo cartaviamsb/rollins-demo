@@ -20,7 +20,7 @@ const GroupItem = (props) => {
   );
 };
 
-const Menu = (props) => {
+const Menu = () => {
 
   const menuItems= [
     [

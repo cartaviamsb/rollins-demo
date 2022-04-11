@@ -1,25 +1,22 @@
 import React, {useState, useEffect} from"react";
 
 const MenuGroup = (props) => {
+  const headerClasses = 'font-bold text-rollins-blue',
+    linkClasses = 'text-gray-700';
+
   return (
-    <div class="link-group py-2 w-full md:w-1/3 border-b-2 border-rollins-gray md:border-none" id={`secondary-group-${props.i}`} >
+    <div class="link-group py-2 w-full md:w-1/3 border-b-2 border-rollins-gray md:border-none" key={`secondary-group-${props.i}`} >
       { props.item.map((group, i) => {
-          return i == 0 ? <GroupHeader item = {group} /> : <GroupLink item = {group} />
+          return <GroupItem item = {group} classes = {i === 0 ? headerClasses : linkClasses} />
         })
       }
     </div>
   );
 };
 
-const GroupHeader = (props) => {
+const GroupItem = (props) => {
   return (
-    <a href={props.item.link} class="block py-2 md:py-0 text-base md:text-sm font-bold text-rollins-blue" role="menuitem" tabindex="-1" id={`secondary-header-item-${props.i}`}>{props.item.title}</a>
-  );
-};
-
-const GroupLink = (props) => {
-  return (
-    <a href={props.item.link} class="block py-2 md:py-0 text-base md:text-sm text-gray-700" role="menuitem" tabindex="-1" id={`secondary-link-item-${props.i}`}>{props.item.title}</a>
+    <a href={props.item.link} class={`block py-2 md:py-0 text-base md:text-sm ${props.classes}`}  role="menuitem" tabIndex="-1" key={`secondary-item-${props.i}`}>{props.item.title}</a>
   );
 };
 

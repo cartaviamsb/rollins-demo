@@ -5,9 +5,9 @@ const MenuGroup = (props) => {
     linkClasses = 'text-gray-700';
 
   return (
-    <div className="link-group py-2 w-full md:w-1/3 border-b-2 border-rollins-gray md:border-none" key={`secondary-group-${props.i}`} >
+    <div className="link-group py-2 w-full md:w-1/3 border-b-2 border-rollins-gray md:border-none" >
       { props.item.map((group, i) => {
-          return <GroupItem item={group} classes={i === 0 ? headerClasses : linkClasses} />
+          return <GroupItem item={group} classes={i === 0 ? headerClasses : linkClasses} key={`secondary-item-${i}`}/>
         })
       }
     </div>
@@ -16,7 +16,7 @@ const MenuGroup = (props) => {
 
 const GroupItem = (props) => {
   return (
-    <a href={props.item.link} className={`block py-2 md:py-0 text-base md:text-sm ${props.classes}`}  role="menuitem" tabIndex="-1" key={`secondary-item-${props.i}`}>{props.item.title}</a>
+    <a href={props.item.link} className={`block py-2 md:py-0 text-base md:text-sm ${props.classes}`}  role="menuitem">{props.item.title}</a>
   );
 };
 
@@ -34,10 +34,6 @@ const SecondaryMenu = (props) => {
     window.addEventListener("scroll", toggleBodyClass);
     toggleBodyClass();
   });
-
-  useEffect(() => {
-    window.removeEventListener("scroll", toggleBodyClass);
-  }, []);
 
   const toggleBodyClass = () => {
     if (scrolled && window.scrollY <= 0) {
@@ -61,17 +57,13 @@ const SecondaryMenu = (props) => {
             </div>
           </div>
 
-          {/* Dropdown  */}
-          <div className="relative">
-            <div>
-              <button type="button" className={`flex px-2 border-2 focus:outline-none font-bold text-xs ${!scrolled ? 'border-rollins-blue' : 'border-white'}`} id="secondary-menu-button" aria-expanded="false" aria-haspopup="true"
-                onClick={() => { toggleMenu() }}
-              >
-                <span className="sr-only">Open secondary menu</span>
-                <span className="pr-2 hidden md:block">Menu</span><span>{`${!menuOpen ? '▼' : '▲'}`}</span>
-              </button>
-            </div>
-          </div>
+          {/* Dropdown button  */}
+          <button type="button" className={`flex px-2 border-2 focus:outline-none font-bold text-xs ${!scrolled ? 'border-rollins-blue' : 'border-white'}`} id="secondary-menu-button" aria-expanded="false" aria-haspopup="true"
+            onClick={() => { toggleMenu() }}
+          >
+            <span className="sr-only">Open secondary menu</span>
+            <span className="pr-2 hidden md:block">Menu</span><span>{`${!menuOpen ? '▼' : '▲'}`}</span>
+          </button>
         </div>
       </div>
 
@@ -86,9 +78,9 @@ const SecondaryMenu = (props) => {
           To: "transform opacity-0 scale-95"
         */}
         { menuOpen && 
-          <div  className={`dropdown-menu inline-flex md:flex-wrap flex-col content-start p-4 sm:px-6 lg:px-8 w-full bg-white focus:outline-none h-screen overflow-y-auto ${!scrolled ? 'mt-0 border-b-4 border-rollins-yellow ' : 'mt-1'}`} role="menu" aria-orientation="vertical" aria-labelledby="secondary-menu-button" tabIndex="-1">
+          <div className={`dropdown-menu inline-flex md:flex-wrap flex-col content-start p-4 sm:px-6 lg:px-8 w-full bg-white focus:outline-none h-screen overflow-y-auto ${!scrolled ? 'mt-0 border-b-4 border-rollins-yellow ' : 'mt-1'}`} role="menu" aria-orientation="vertical" aria-labelledby="secondary-menu-button">
             {props.menuItems && props.menuItems.map((item, i) => (
-              <MenuGroup item={item} i={i} />
+              <MenuGroup item={item} i={i} key={i}/>
             ))}
           </div>
         }

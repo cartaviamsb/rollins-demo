@@ -86,7 +86,7 @@ const SecondaryMenu = (props) => {
           To: "transform opacity-0 scale-95"
         */}
         { menuOpen && 
-          <div  className={`dropdown-menu inline-flex md:flex-wrap flex-col content-start p-4 sm:px-6 lg:px-8 w-full bg-white focus:outline-none h-screen overflow-y-auto ${!scrolled ? 'mt-0 border-b-4 border-rollins-yellow ' : 'mt-1'}`} role="menu" aria-orientation="vertical" aria-labelledby="secondary-menu-button" tabindex="-1">
+          <div  className={`dropdown-menu inline-flex md:flex-wrap flex-col content-start p-4 sm:px-6 lg:px-8 w-full bg-white focus:outline-none h-screen overflow-y-auto ${!scrolled ? 'mt-0 border-b-4 border-rollins-yellow ' : 'mt-1'}`} role="menu" aria-orientation="vertical" aria-labelledby="secondary-menu-button" tabIndex="-1">
             {props.menuItems && props.menuItems.map((item, i) => (
               <MenuGroup item={item} i={i} />
             ))}

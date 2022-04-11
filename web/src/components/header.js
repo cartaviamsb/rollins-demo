@@ -145,8 +145,8 @@ const Header = ({ showNav, siteTitle, navMenuItems = [], textWhite = true }) => 
       {
         title: 'Glossary of Terms',
         link: '#Glossary of Terms'
-        },
-    ]
+      },
+    ],
   ];
 
   return (
